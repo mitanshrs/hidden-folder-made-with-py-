@@ -1,11 +1,9 @@
-from fileinput import filename
 import os
 import shutil
 import sys
 import pickle
 import time
 import tkinter as tk
-import requests
 from tkinter import messagebox, simpledialog
 
 data = "C:/ProgramData/BMU_DATA/HF_MWP_BMU/data"
@@ -67,17 +65,6 @@ def reset():
         shutil.rmtree(resetpath)
     except Exception as e:
         messagebox.showerror("Error", f"Reset error: {e}")
-
-if not os.path.exists(f"{data_core}/logo.ico"):
-    icon_url = "https://example.com/file.pdf"
-    filename_of_icon= "downloaded_file.pdf"
-    response = requests.get(icon_url)
-    if response.status_code == 200:
-        with open(f"{data_core}/{filename_of_icon}", "wb") as file:
-            file.write(response.content)
-            print(f"File downloaded successfully as {filename_of_icon}")
-    else:
-        print("Failed to download file")
 # Tkinter GUI
 root = tk.Tk()
 root.title("Hidden Folder MWPBMU 4.0V")
